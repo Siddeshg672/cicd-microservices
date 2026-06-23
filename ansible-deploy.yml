@@ -13,8 +13,8 @@
     - name: pull an image
       shell: docker pull hiqode01.jfrog.io/tomcat-war-deploy/cicd-app/{{ microservice }}:V-1.0.0-{{ build_number }}
 
-   # - name: remove container
-   #   shell: docker rm -f {{ microservice }}
+    - name: remove container
+      shell: docker rm -f {{ microservice }}
         
     - name: create a application container
       shell: docker run -id --name {{ microservice }} -p {{ port }}:{{ port }} --network new-bridge-network hiqode01.jfrog.io/tomcat-war-deploy/cicd-app/{{ microservice }}:V-1.0.0-{{ build_number }} 
